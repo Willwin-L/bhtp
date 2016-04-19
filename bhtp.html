@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变换图片和边框</title>
+    <style>
+        .border img{
+            width: 400px;
+            height: 300px;
+            border: 5px solid red; 
+        }
+        .pic{width: 100px;height: 100px;margin: 30px;}
+        .color{width: 50px;height: 50px;float: left;margin: 30px}
+    </style>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+          $(function(){
+              
+//              $(".color").each(function(){
+//                  var str = $(this).attr("col");
+//                  $(this).css({"background-color":str})
+//              })
+              
+              
+              $(".pic").mouseover(function(){
+                  //alert($(this).attr("src"))
+                  var str = $(this).attr("src");
+                  $(".bimg").attr("src",str)
+              })
+              
+              $(".color").mouseover(function(){
+//                  alert($(this).attr("col"))
+                  var str = $(this).attr("col")
+
+                  $(".border img").css({"border-color":str})
+              })
+              
+              
+              
+              //使用h5 input属性设置
+              $(".mycolor").change(function(){
+                    //alert($(this).val())
+                  //var str = $(this).val()
+                  $(".border img").css({"border-color":$(this).val()})
+              })
+          })  
+    </script>
+</head>
+<body>
+    <div class="border">
+        <img src="1.jpg" alt="" class="bimg">
+    </div>
+    
+<!--
+    <div class="color" col="#ff0"></div>
+    <div class="color" col="#f0f"></div>
+    <div class="color" col="#66f"></div>
+    <div class="color" col="#094"></div>
+-->
+    
+    <input type="color" class="mycolor">
+    
+    <img src="2.jpg" alt="" class="pic">
+    <img src="3.jpg" alt="" class="pic">
+</body>
+</html>
